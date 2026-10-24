@@ -24,5 +24,5 @@ jobs:
           git config user.email github-actions@users.noreply.github.com
           git add .
           current=`TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M:%S'`
-          git commit -m "[${current}] random cron trigger by ${{ github.event_name }}"
-          git push origin master
+          git commit -m "[${current}] random cron trigger by ${{ github.event_name }}" || echo "nothing to commit"
+          git push origin master || echo "push failed, ignored"
